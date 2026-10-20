@@ -1,5 +1,5 @@
 ---
-const foto = false; // pon true si añades public/foto.jpg
+const foto = false;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const nombre = 'Natalia Chuquillanqui';
@@ -9,6 +9,7 @@ const perfil =
 
 const enlaces = [
   { texto: 'natalia.cornejo2002@gmail.com', href: 'mailto:natalia.cornejo2002@gmail.com' },
+  { texto: '665950602', href: 'tel:+34665950602' },
   { texto: 'GitHub', href: 'https://github.com/Nat-Code-hub' },
   { texto: 'LinkedIn', href: 'https://linkedin.com/in/natalia-chuquillanqui-cornejo-dev' },
 ];
@@ -57,7 +58,10 @@ const skills = [
   ['Herramientas', 'Git, GitHub, Docker, Android Studio, Power BI, Figma'],
   ['Automatización', 'n8n, integración con APIs'],
   ['Cloud', 'AWS y Azure (nivel básico)'],
-  ['Metodología', 'Scrum, documentación técnica y funcional'],
+];
+const metodologias = [
+  ['Metodología ágil', 'Scrum'],
+  ['Documentación', 'Generación de documentación técnica y funcional'],
 ];
 const aptitudes = ['Trabajo en equipo', 'Resolución de problemas', 'Aprendizaje rápido', 'Adaptabilidad', 'Organización y gestión del tiempo'];
 ---
@@ -137,6 +141,11 @@ const aptitudes = ['Trabajo en equipo', 'Resolución de problemas', 'Aprendizaje
         <dl class="skills">
           {skills.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
         </dl>
+        <h3 class="subtitulo">Metodologías</h3>
+        <dl class="skills">
+          {metodologias.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+        </dl>
+        <h3 class="subtitulo">Aptitudes</h3>
         <ul class="chips">{aptitudes.map((a) => <li>{a}</li>)}</ul>
       </section>
 
@@ -149,9 +158,6 @@ const aptitudes = ['Trabajo en equipo', 'Resolución de problemas', 'Aprendizaje
         <p class="idiomas">Español nativo. Inglés A1.</p>
       </section>
 
-      <footer>
-        <p>Hecho con Astro.</p>
-      </footer>
     </main>
   </body>
 </html>
@@ -223,11 +229,10 @@ const aptitudes = ['Trabajo en equipo', 'Resolución de problemas', 'Aprendizaje
   .skills { display: grid; grid-template-columns: max-content 1fr; gap: 0.7rem 2rem; margin: 0 0 2rem; }
   .skills dt { font-weight: 500; }
   .skills dd { margin: 0; color: var(--muted); }
+  .subtitulo { margin: 2.5rem 0 1rem; }
   .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .chips li { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.95rem; }
   .idiomas { margin: 0.5rem 0 0; color: var(--muted); }
-  footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
-  footer p { margin: 0; }
 
   /* Único movimiento: el diagrama se enciende al cargar */
   @media (prefers-reduced-motion: no-preference) {
