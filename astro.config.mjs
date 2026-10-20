@@ -5,5 +5,5 @@ import { defineConfig } from 'astro/config';
 // Si lo llamas distinto, cambia "base" por "/nombre-del-repo".
 export default defineConfig({
   site: 'https://nat-code-hub.github.io',
-  base: '/cv',
+  base: '/Cv',
 });
