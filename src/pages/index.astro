@@ -1,0 +1,256 @@
+---
+const foto = false; // pon true si añades public/foto.jpg
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const nombre = 'Natalia Chuquillanqui';
+const rol = 'Desarrolladora de aplicaciones multiplataforma junior';
+const perfil =
+  'Técnica Superior en Desarrollo de Aplicaciones Multiplataforma (DAM). Trabajo con backend en Python, FastAPI y Node.js, frontend con Angular y Android con Kotlin. Tengo experiencia práctica en automatización de procesos, APIs REST, bases de datos SQL y proyectos con Docker, PostgreSQL y Git. Busco incorporarme como desarrolladora junior para seguir creciendo y contribuir a proyectos tecnológicos.';
+
+const enlaces = [
+  { texto: 'natalia.cornejo2002@gmail.com', href: 'mailto:natalia.cornejo2002@gmail.com' },
+  { texto: 'GitHub', href: 'https://github.com/Nat-Code-hub' },
+  { texto: 'LinkedIn', href: 'https://linkedin.com/in/natalia-chuquillanqui-cornejo-dev' },
+];
+
+const experiencia = [
+  {
+    titulo: 'Prácticas DAM en Aiuken Cybersecurity',
+    lugar: 'Madrid',
+    fecha: '2025–2026',
+    puntos: [
+      'Automatización de procesos internos con Python.',
+      'Tratamiento y análisis de datos de alertas de seguridad.',
+      'Dashboards e indicadores con Power BI.',
+      'Automatización de flujos de trabajo con n8n.',
+      'Integración con las APIs de Cortex XSOAR.',
+    ],
+  },
+  {
+    titulo: 'Proyecto académico: Nembus',
+    lugar: 'Trabajo en equipo',
+    fecha: '2025',
+    puntos: [
+      'Backend con Node.js y frontend con Angular.',
+      'Metodologías ágiles y Git en equipo.',
+      'Integración y pruebas funcionales de la aplicación.',
+    ],
+  },
+];
+
+const mindtask = [
+  'Aplicación Android conectada a una API REST propia.',
+  'Autenticación JWT y gestión de usuarios.',
+  'Base de datos PostgreSQL diseñada desde cero.',
+  'Notificaciones inteligentes con WorkManager.',
+  'Servicios desplegados con Docker.',
+  'Diseño UX/UI y prototipo en Figma.',
+];
+
+const skills = [
+  ['Lenguajes', 'Java, Kotlin, Python, SQL, JavaScript (básico)'],
+  ['Frontend', 'Angular, Astro, HTML, CSS'],
+  ['Backend', 'Node.js, FastAPI'],
+  ['API REST', 'Diseño e implementación, JWT'],
+  ['Móvil', 'Android, Kotlin, MVVM, WorkManager'],
+  ['Bases de datos', 'PostgreSQL, MongoDB, Hibernate, JPA'],
+  ['Herramientas', 'Git, GitHub, Docker, Android Studio, Power BI, Figma'],
+  ['Automatización', 'n8n, integración con APIs'],
+  ['Cloud', 'AWS y Azure (nivel básico)'],
+  ['Metodología', 'Scrum, documentación técnica y funcional'],
+];
+const aptitudes = ['Trabajo en equipo', 'Resolución de problemas', 'Aprendizaje rápido', 'Adaptabilidad', 'Organización y gestión del tiempo'];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{nombre} · Desarrolladora de aplicaciones multiplataforma</title>
+    <meta name="description" content="CV de Natalia Chuquillanqui, desarrolladora de aplicaciones multiplataforma junior: Kotlin, FastAPI, Angular, Python y Docker." />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div class="hero-text">
+          <h1>{nombre}</h1>
+          <p class="rol">{rol}</p>
+          <p class="perfil">{perfil}</p>
+          <ul class="enlaces">
+            {enlaces.map((e) => <li><a href={e.href}>{e.texto}</a></li>)}
+          </ul>
+        </div>
+        {foto && <img class="foto" src={`${base}/foto.jpg`} alt={`Foto de ${nombre}`} width="180" height="180" />}
+      </header>
+
+      <section aria-labelledby="t-mindtask">
+        <h2 id="t-mindtask">MindTask, aplicación Android de bienestar laboral</h2>
+        <p class="sub">Trabajo de fin de ciclo. Así encajan sus piezas:</p>
+
+        <div class="flow" role="img" aria-label="Arquitectura: app Android con Kotlin se conecta a una API FastAPI con JWT, que guarda los datos en PostgreSQL. API y base de datos corren en Docker.">
+          <div class="nodo n1">
+            <strong>App Android</strong>
+            <code>Kotlin · MVVM · WorkManager</code>
+          </div>
+          <div class="cable c1"></div>
+          <div class="docker">
+            <span class="docker-label">Docker</span>
+            <div class="nodo n2">
+              <strong>API REST</strong>
+              <code>FastAPI · JWT</code>
+            </div>
+            <div class="cable c2"></div>
+            <div class="nodo n3">
+              <strong>Base de datos</strong>
+              <code>PostgreSQL</code>
+            </div>
+          </div>
+        </div>
+
+        <ul class="lista">
+          {mindtask.map((p) => <li>{p}</li>)}
+        </ul>
+      </section>
+
+      <section aria-labelledby="t-exp">
+        <h2 id="t-exp">Experiencia</h2>
+        <ol class="timeline">
+          {experiencia.map((x) => (
+            <li>
+              <div class="cab">
+                <h3>{x.titulo}</h3>
+                <span class="meta">{x.lugar}, {x.fecha}</span>
+              </div>
+              <ul class="lista">{x.puntos.map((p) => <li>{p}</li>)}</ul>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="t-skills">
+        <h2 id="t-skills">Tecnologías</h2>
+        <dl class="skills">
+          {skills.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+        </dl>
+        <ul class="chips">{aptitudes.map((a) => <li>{a}</li>)}</ul>
+      </section>
+
+      <section aria-labelledby="t-edu">
+        <h2 id="t-edu">Educación e idiomas</h2>
+        <div class="cab">
+          <h3>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+          <span class="meta">La Otra FP PRO2, 2024–2026</span>
+        </div>
+        <p class="idiomas">Español nativo. Inglés A1.</p>
+      </section>
+
+      <footer>
+        <p>Hecho con Astro.</p>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0d1821;
+    --surface: #13232f;
+    --line: #25394a;
+    --text: #e4ecf1;
+    --muted: #8da2b1;
+    --accent: #4fb3d1;
+    color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 1.0625rem/1.65 'IBM Plex Sans', system-ui, sans-serif;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+    background-attachment: fixed;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: -1;
+    background: radial-gradient(ellipse at 20% 0%, transparent 0%, var(--bg) 75%);
+  }
+  main { max-width: 68rem; margin: 0 auto; padding: 5rem 1.5rem 3rem; }
+  h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; line-height: 1.1; margin: 0; }
+  h1 { font-size: clamp(2.6rem, 8vw, 5.5rem); font-weight: 700; letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.015em; margin-bottom: 1.25rem; }
+  h3 { font-size: 1.2rem; font-weight: 500; }
+  a { color: var(--accent); text-underline-offset: 0.25em; }
+  a:hover { color: #fff; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  section { margin-top: 5.5rem; }
+  ul, ol { padding: 0; margin: 0; list-style: none; }
+
+  .hero { display: flex; gap: 2.5rem; align-items: flex-start; justify-content: space-between; }
+  .rol { font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: var(--accent); margin: 1rem 0 1.5rem; font-weight: 500; }
+  .perfil { max-width: 40rem; color: var(--text); margin: 0 0 1.5rem; }
+  .enlaces { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+  .foto { border-radius: 50%; border: 2px solid var(--line); object-fit: cover; flex: none; }
+  .sub { color: var(--muted); margin: -0.5rem 0 1.75rem; }
+
+  /* Diagrama de MindTask: el elemento memorable */
+  .flow { display: flex; align-items: center; gap: 0; margin-bottom: 2.25rem; }
+  .docker { position: relative; display: flex; align-items: center; flex: 2; border: 1.5px dashed var(--accent); border-radius: 14px; padding: 2.1rem 1.25rem 1.25rem; }
+  .docker-label { position: absolute; top: 0.55rem; left: 1rem; font: 500 0.8rem 'IBM Plex Mono', monospace; color: var(--accent); }
+  .nodo { flex: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .nodo strong { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1rem; font-weight: 500; }
+  .nodo code { font: 400 0.8rem 'IBM Plex Mono', monospace; color: var(--muted); }
+  .cable { flex: none; width: 3.5rem; height: 2px; background: var(--accent); transform-origin: left; position: relative; }
+  .cable::after { content: ''; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 8px solid var(--accent); border-right: 0; }
+
+  .lista { display: grid; gap: 0.45rem; max-width: 44rem; }
+  .lista li { position: relative; padding-left: 1.4rem; }
+  .lista li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 0.6rem; height: 2px; background: var(--accent); }
+
+  .timeline { border-left: 2px solid var(--line); margin-left: 0.4rem; display: grid; gap: 2.5rem; }
+  .timeline > li { position: relative; padding-left: 1.75rem; }
+  .timeline > li::before { content: ''; position: absolute; left: -7px; top: 0.45rem; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+  .cab { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; margin-bottom: 0.75rem; }
+  .meta { color: var(--muted); font-size: 0.95rem; }
+
+  .skills { display: grid; grid-template-columns: max-content 1fr; gap: 0.7rem 2rem; margin: 0 0 2rem; }
+  .skills dt { font-weight: 500; }
+  .skills dd { margin: 0; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chips li { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.95rem; }
+  .idiomas { margin: 0.5rem 0 0; color: var(--muted); }
+  footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+  footer p { margin: 0; }
+
+  /* Único movimiento: el diagrama se enciende al cargar */
+  @media (prefers-reduced-motion: no-preference) {
+    .nodo, .docker { animation: aparece 0.5s ease-out both; }
+    .n1 { animation-delay: 0.2s; }
+    .c1 { animation: traza 0.4s ease-out 0.7s both; }
+    .docker { animation-delay: 1.0s; }
+    .n2 { animation-delay: 1.2s; }
+    .c2 { animation: traza 0.4s ease-out 1.5s both; }
+    .n3 { animation-delay: 1.8s; }
+  }
+  @keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes traza { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  @media (max-width: 720px) {
+    main { padding-top: 3rem; }
+    .flow { flex-direction: column; align-items: stretch; }
+    .docker { flex-direction: column; align-items: stretch; }
+    .cable { width: 2px; height: 2.25rem; align-self: center; transform-origin: top; }
+    .cable::after { right: auto; left: -4px; top: auto; bottom: -1px; border: 5px solid transparent; border-top: 8px solid var(--accent); border-bottom: 0; }
+    .skills { grid-template-columns: 1fr; gap: 0.1rem; }
+    .skills dd { margin-bottom: 0.7rem; }
+    .hero { flex-direction: column-reverse; }
+    @keyframes traza { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  }
+</style>
